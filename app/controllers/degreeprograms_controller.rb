@@ -1,5 +1,6 @@
 class DegreeprogramsController < ApplicationController
   before_action :set_degreeprogram, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /degreeprograms
   # GET /degreeprograms.json

@@ -4,6 +4,7 @@
 //= require action_cable
 //= require_self
 //= require_tree ./channels
+//= require tether
 
 (function() {
   this.App || (this.App = {});

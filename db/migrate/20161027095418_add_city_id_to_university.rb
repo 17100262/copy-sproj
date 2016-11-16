@@ -30,7 +30,5 @@ class AddCityIdToUniversity < ActiveRecord::Migration[5.0]
   	add_foreign_key :university_degrees, :degree_id
   	remove_foreign_key :university_degrees, column: :id
   	add_foreign_key :university_degrees, :degree_id, :university_degree_id
-
-
   end
 end

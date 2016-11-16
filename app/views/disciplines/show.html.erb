@@ -1,17 +1,18 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @discipline.Name %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+<p class="text-center">
+  <!--<strong>Name:</strong>-->
+  <h1 align="center"><%= @discipline.Name %></h1>
 </p>
 
-<p>
-  <strong>Description:</strong>
+<p class="text-center">
+  <!--<strong>Description:</strong>-->
   <%= @discipline.Description %>
 </p>
 
 <p>
-  <strong>Degrees offered:</strong>
+  <h2 align="center">Degrees offered:</h2>
 
     <ul> <% for item in @degrees %>
       <% for uni in item.university %>
@@ -24,7 +25,7 @@
 </p>
 
 <p>
-  <strong>SubDisciplines</strong>
+  <h2 align="center">SubDisciplines</h2>
       <ul> 
       <% for item in @sub %>
       <li>
@@ -37,3 +38,5 @@
 
 <%= link_to 'Edit', edit_discipline_path(@discipline) %> |
 <%= link_to 'Back', disciplines_path %>
+</div>
+</div>

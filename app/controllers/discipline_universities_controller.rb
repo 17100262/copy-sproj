@@ -1,5 +1,6 @@
 class DisciplineUniversitiesController < ApplicationController
   before_action :set_discipline_university, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /discipline_universities
   # GET /discipline_universities.json

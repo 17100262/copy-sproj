@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
 
+<p id="notice"><%= notice %></p>
+<div class="container-fluid">
 <h1>Subdisciplines</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,11 +15,10 @@
   <tbody>
     <% @subdisciplines.each do |subdiscipline| %>
       <tr>
-        <td><%= subdiscipline.name %></td>
+        <td><%= link_to subdiscipline.name, subdiscipline %></td>
         <td><%= subdiscipline.discipline.Name %></td>
-        <td><%= link_to 'Show', subdiscipline %></td>
-        <td><%= link_to 'Edit', edit_subdiscipline_path(subdiscipline) %></td>
-        <td><%= link_to 'Destroy', subdiscipline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_subdiscipline_path(subdiscipline),class: "btn btn-info" %></td>
+        <td><%= link_to 'Destroy', subdiscipline, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,3 +27,4 @@
 <br>
 
 <%= link_to 'New Subdiscipline', new_subdiscipline_path %>
+</div>
