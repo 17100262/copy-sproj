@@ -1,6 +1,7 @@
 class DisciplinesController < ApplicationController
   # before_action :authenticate_user!
   before_action :set_discipline, only: [:show, :edit, :update, :destroy]
+  before_filter :new, :only => [:new, :create]
   load_and_authorize_resource
 
   # GET /disciplines
@@ -31,8 +32,12 @@ class DisciplinesController < ApplicationController
   # POST /disciplines
   # POST /disciplines.json
   def create
+    # puts "asdasdasdasdasda"
+    # puts discipline_params
+    
     @discipline = Discipline.new(discipline_params)
-    # puts @discipline.save
+    # puts "hello"
+    puts @discipline.save
 
     respond_to do |format|
       if @discipline.save
@@ -78,6 +83,7 @@ class DisciplinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def discipline_params
+      puts "asdasdasdasdasda"
       params.require(:discipline).permit(:Name, :Description)
     end
 end
