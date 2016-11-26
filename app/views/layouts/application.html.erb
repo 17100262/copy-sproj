@@ -12,7 +12,7 @@
             #collapsemenu{
                 overflow-x:hidden !important;
             }
-            body { padding-top: 55px; }
+            body { padding-top: 54px; }
         }
         }
     </style>
@@ -42,7 +42,7 @@
        <span class = "icon-bar"></span>
        <span class = "icon-bar"></span>
       </button>
-      <a href="#" class="navbar-brand">
+      <a href="/" class="navbar-brand">
         <img alt='Alexa logo' class="immg" src='alexa-logo.png'>
       </a>
     </div>
@@ -68,11 +68,16 @@
             <li><a href="#">Blog</a></li>
           </ul>
         </li>
-      <li><a href="#">Prices</a></li>
-      <li><a href="/users/sign_in">Log In</a></li>
-      <li><a href="/users/sign_up"><button class="btn sign">
-                        SIGN UP
-                    </button></a></li>
+      <li><a href="/disciplines">Disciplines</a></li>
+      <% if user_signed_in? %>
+      
+      <li><%= link_to('Log out', destroy_user_session_path, :method => :delete) %></li>
+      <% else %>
+      <li><a href="/users/sign_in">Log In</a></li>\
+      <li><a href="/users/sign_up"><button class="btn sign">SIGN UP</button></a></li>
+      <% end %>
+      
+      
     </ul>
 
     </div>
@@ -84,6 +89,66 @@
    <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+		<footer class="footer-distributed">
 
+			<div class="footer-left">
+
+				<h3>Company<span>logo</span></h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					·
+					<a href="#">Blog</a>
+					·
+					<a href="#">Pricing</a>
+					·
+					<a href="#">About</a>
+					·
+					<a href="#">Faq</a>
+					·
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">Company Name &copy; 2015</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>21 Revolution Street</span> Paris, France</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+1 555 123456</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">support@company.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
   </body>
 </html>

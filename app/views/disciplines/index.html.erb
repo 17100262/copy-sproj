@@ -1,32 +1,75 @@
+<!------------SAQIB's working------------->
 
-<div class="container-fluid">
-<p id="notice"><%= notice %></p>
+<div class="container-fluid" >
+  <div class="services container" >
+  <p id="notice"><%= notice %></p>
+  <div align="center">
+    <h1>Explore Disciplines</h1>
+  </div>
+  <% @disciplines.each do |discipline| %>
+      <section class="col-sm-6 col-md-4" id="section">
+        <h3><%= link_to discipline.Name, discipline %></h3>
+      
+      
+      
+      <% if can? :update, discipline %>
+        <td ><%= link_to 'Edit', edit_discipline_path(discipline),class:"btn btn-info"%></td>
+      <% end %>
+      <% if can? :delete, discipline %>
+        <td><%= link_to 'Destroy', discipline, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+      <% end %>
+      </section>
+    
+  <% end %>
 
-<h1>Disciplines</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @disciplines.each do |discipline| %>
-      <tr>
-        <td><%= link_to discipline.Name, discipline %></td>
-        <% if can? :update, discipline %>
-          <td ><%= link_to 'Edit', edit_discipline_path(discipline),class:"btn btn-info"%></td>
-        <% end %>
-        <% if can? :delete, discipline %>
-          <td><%= link_to 'Destroy', discipline, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+ </div> 
+</div>
 <br>
 
 <%= link_to 'New Discipline', new_discipline_path %>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!----------------ORIGINAL FILE---------------->
+<!--<div class="container-fluid">-->
+<!--<p id="notice"><= notice %></p>-->
+
+<!--<h1>Disciplines</h1>-->
+
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>Name</th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+
+<!--  <tbody>-->
+<!--    < @disciplines.each do |discipline| %>-->
+<!--      <tr>-->
+<!--        <td><= link_to discipline.Name, discipline %></td>-->
+<!--        < if can? :update, discipline %>-->
+<!--          <td ><= link_to 'Edit', edit_discipline_path(discipline),class:"btn btn-info"%></td>-->
+<!--        < end %>-->
+<!--        < if can? :delete, discipline %>-->
+<!--          <td><= link_to 'Destroy', discipline, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>-->
+<!--        < end %>-->
+<!--      </tr>-->
+<!--    < end %>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+<!--<br>-->
+
+<!--<= link_to 'New Discipline', new_discipline_path %>-->
+<!--</div>-->
